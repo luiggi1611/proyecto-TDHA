@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
+  <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+  <meta name="author" content="PIXINVENT">
+  <title>APP TDAH</title>
+  <link rel="apple-touch-icon" href="../../../static/app-assets/images/ico/apple-icon-120.png">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+  rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/vendors.css">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN MODERN CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/app.css">
+  <!-- END MODERN CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/pages/gallery.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/pages/timeline.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+
+
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS
+  <link rel="stylesheet" type="text/css" href="../../../static/assets/css/style.css">-->
+  <!-- END Custom CSS-->
+</head>
+<body class="vertical-layout vertical-menu-modern 2-columns   menu-expanded fixed-navbar"
+data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+  <!-- fixed-top-->
+  {% include 'Paginas/Secciones/Header.html' %}
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  {% include 'Paginas/Secciones/Lateral bar.html' %}
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
+          <h1 class="content-header-title mb-0 d-inline-block">Bienvenidos </h1>
+          <div class="row breadcrumbs-top d-inline-block">
+            <!--<div class="breadcrumb-wrapper col-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">Gallery</a>
+                </li>
+                <li class="breadcrumb-item active">Gallery Hover Effects
+                </li>
+              </ol>
+            </div>-->
+          </div>
+        </div>
+        <!-- <div class="content-header-right col-md-6 col-12">
+          <div class="dropdown float-md-right">
+            <button class="btn btn-danger dropdown-toggle round btn-glow px-2" id="dropdownBreadcrumbButton"
+            type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownBreadcrumbButton"><a class="dropdown-item" href="#"><i class="la la-calendar-check-o"></i> Calender</a>
+              <a class="dropdown-item" href="#"><i class="la la-cart-plus"></i> Cart</a>
+              <a class="dropdown-item" href="#"><i class="la la-life-ring"></i> Support</a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="la la-cog"></i> Settings</a>
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <div class="content-body">
+        <!-- Description -->
+        <section id="description" class="card">
+          <div class="card-header">
+            <h2 class="card-title"></h2>
+            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+   
+            
+
+
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+
+
+
+             {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show">{{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show">{{error}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %}
+
+                {% if msg %}
+                <div class="alert alert-success alert-dismissible fade show">{{msg}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %}
+
+                <!-- end flash messages -->
+
+                  <div>
+                    {% block body %}
+                    {% endblock %}
+                  <!-- flash messages -->
+                  </div>
+
+              <div class="card-text">
+                <h3> Este cuestionario tiene como objetivo identificar de manera temprana a las personas que sufren TDAH. Es por ello por lo que es muy importante que sea respondido siempre por los mismos niños o niñas.
+                </h3>
+              </div>
+
+
+  <table id="data" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+        <th>Fecha Nacimiento</th>
+                  <th>Email</th>
+
+          <th>Predicción</th>
+                    <th>detalle</th>
+
+      </tr>
+    </thead>
+<tbody>
+                    {% for _,user in tables.iterrows() %}
+                        <tr>
+                            <td>{{ user.nombre }}</td>
+                            <td>{{ user.apellido }}</td>
+                            <td>{{ user.DNI }}</td>
+                            <td>{{ user.fecha_nacimiento }}</td>
+                            <td>{{ user.correo }}</td>
+                            <td>{{ user.score }}</td>
+                            <td><form action="{{ url_for('ficha', nombre=user.nombre,apellido =user.apellido,DNI = user.DNI, fecha_nacimiento =user.fecha_nacimiento,score=user.score ) }}" method="POST">
+                                <input type="submit" value="Ver Ficha"  />
+                                </form>    </td>
+                        </tr>
+                    {% endfor %}
+
+  </table>
+
+            </div>
+          </div>
+
+        </section>
+
+
+        <!--/ Description -->
+        <!-- Hover Effects -->
+
+        <!--/ Hover Effects -->
+      </div>
+    </div>
+  </div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  {% include 'Paginas/Secciones/footer.html' %}
+  <!-- BEGIN VENDOR JS-->
+<script>
+    $(document).ready(function () {
+      $('#data').DataTable({ language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json',
+    },
+
+      });
+    });
+  </script>
+  <script src="../../../static/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
+  <!-- BEGIN PAGE VENDOR JS-->
+  <!-- END PAGE VENDOR JS-->
+  <!-- BEGIN MODERN JS-->
+
+
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+
+<script src="../../../static/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+<script src="../../../static/app-assets/js/core/app.js" type="text/javascript"></script>
+<script src="../../../static/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+<!-- END MODERN JS-->
+<!-- BEGIN PAGE LEVEL JS-->
+<!-- END PAGE LEVEL JS-->
+
+
+<!-- BEGIN VENDOR JS-->
+<!-- BEGIN PAGE VENDOR JS-->
+<script src="../../../static/app-assets/vendors/js/charts/echarts/echarts.js" type="text/javascript"></script>
+<!-- END PAGE VENDOR JS-->
+<!-- BEGIN PAGE LEVEL JS-->
+<script src="../../../static/app-assets/js/scripts/charts/echarts/funnel-gauges/right-align-funnel.js"
+type="text/javascript"></script>
+
+<script src="../../../static/app-assets/vendors/js/timeline/horizontal-timeline.js" type="text/javascript"></script>
+
+</body>
+</html>

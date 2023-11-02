@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
+  <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+  <meta name="author" content="PIXINVENT">
+  <title>APP TDAH
+  </title>
+             <!-- <img class="brand-logo" alt="modern admin logo" src=""> -->
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+  rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/vendors.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/vendors/css/forms/icheck/icheck.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/vendors/css/forms/icheck/custom.css">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN MODERN CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/app.css">
+  <!-- END MODERN CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/pages/login-register.css">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS
+  <link rel="stylesheet" type="text/css" href="../../../static/assets/css/style.css">-->
+  <!-- END Custom CSS-->
+
+  <style>
+    .bgimg-1 {
+    background-image: url("{{ url_for('static', filename='New_portal/images/logo1.svg') }}");
+          height: 100vh;
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+    .account-block {
+    padding: 0;
+    background-image: url(https://cdn-cinfasalud.cinfa.com/wp-content/uploads/2018/09/tdah2-scaled.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+.account-block .overlay {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.account-block .account-testimonial {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+}
+
+.text-theme {
+    color: #5369f8 !important;
+}
+
+.btn-theme {
+    background-color: #5369f8;
+    border-color: #5369f8;
+    color: #fff;
+}
+    </style>
+</head>
+<body class="vertical-layout vertical-menu-modern 1-column  bgimg-1 bg-lighten-2 menu-expanded fixed-navbar"
+data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+  <!-- fixed-top-->
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-dark bg-blue-grey bg-darken-4 border-blue-grey border-darken-2  navbar-shadow">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">
+          <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+          <li class="nav-item">
+            <a class="navbar-brand">
+             <!-- <img class="brand-logo" alt="modern admin logo" src=""> -->
+              <h3 class="brand-text">APP TDAH </h3>
+            </a>
+          </li>
+          <li class="nav-item d-md-none">
+            <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-container">
+        <div class="collapse navbar-collapse justify-content-end" id="navbar-mobile">
+          <ul class="nav navbar-nav">
+            <li class="nav-item"><a class="nav-link mr-2 nav-link-label" href="javascript:history.back()"><i class="ficon ft-arrow-left"></i></a></li>
+     
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+</br>
+</br>
+</br>
+
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show">{{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show">{{error}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %}
+
+                {% if msg %}
+                <div class="alert alert-success alert-dismissible fade show">{{msg}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %}
+
+                <!-- end flash messages -->
+
+                  <div>
+                    {% block body %}
+                    {% endblock %}
+                  <!-- flash messages -->
+                  </div>
+<div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Ingrese en la plataforma</h3>
+                                </div>
+
+                                <h6 class="h5 mb-0">¡Bienvenido de nuevo!</h6>
+                                <p class="text-muted mt-2 mb-5">Ingrese su correo y su contraseña.</p>
+
+                                <form class="form-horizontal" novalidate method=POST action="{{ url_for('login') }}">
+                      <fieldset class="form-group position-relative has-icon-left">
+                        <input type="text" class="form-control input-lg" id="user-name" name="username" placeholder="Ingrese su usuario"
+                        tabindex="1" required data-validation-required-message="Por favor ingrese su usuario.">
+                        <div class="form-control-position">
+                          <i class="ft-user"></i>
+                        </div>
+                        <div class="help-block font-small-3"></div>
+                      </fieldset>
+                      <fieldset class="form-group position-relative has-icon-left">
+                        <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Ingrese Password"
+                        tabindex="2" required data-validation-required-message="Por favor ingrese su contraseña.">
+                        <div class="form-control-position">
+                          <i class="la la-key"></i>
+                        </div>
+                        <div class="help-block font-small-3"></div>
+                      </fieldset>
+                      <div class="form-group row">
+                        <div class="col-md-6 col-12 text-center text-md-left">
+                          <!--<fieldset>
+                            <input type="checkbox" id="remember-me" class="chk-remember">
+                            <label for="remember-me"> Remember Me</label>
+                          </fieldset> -->
+                        </div>
+                          <!-- <div class="col-md-6 col-12 text-center text-md-right"><a href="{{ url_for('recuperar_usuario') }}" class="card-link">¿Olvido su contraseña?</a></div> -->
+                      </div>
+                      <button type="submit" class="btn btn-info active btn-block btn-lg buttonAnimation" data-animation="tada"><i class="ft-unlock"></i> Ingrese</button>
+                    </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                                <div class="account-testimonial">
+                                    <h4 class="text-white mb-4"></h4>
+                                    <p class="lead text-white"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+
+
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+</div>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+  {% include 'Paginas/Secciones/footer.html' %}
+
+  <!-- BEGIN VENDOR JS-->
+  <script src="../../../static/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
+  <!-- BEGIN PAGE VENDOR JS-->
+  <script src="../../../static/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"
+  type="text/javascript"></script>
+  <script src="../../../static/app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+  <!-- END PAGE VENDOR JS-->
+  <!-- BEGIN MODERN JS-->
+  <script src="../../../static/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+  <script src="../../../static/app-assets/js/core/app.js" type="text/javascript"></script>
+  <script src="../../../static/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+  <!-- END MODERN JS-->
+  <!-- BEGIN PAGE LEVEL JS-->
+  <script src="../../../static/app-assets/js/scripts/forms/form-login-register.js" type="text/javascript"></script>
+  <!-- END PAGE LEVEL JS-->
+</body>
+</html>

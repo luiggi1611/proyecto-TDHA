@@ -1,0 +1,112 @@
+[
+    {
+        "senal": "Vender",
+        "fecha_inicial": "2022-07-20 09:30:00",
+        "Precio Apertura": "3.8752",
+        "fecha_final": "2022-07-21 10:10:00",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.8825",
+        "estado": "Cerrar",
+        "rentabilidad": -45600.0
+    },
+    {
+        "senal": "Vender",
+        "fecha_inicial": "2022-07-21 10:10:00",
+        "Precio Apertura": "3.9154",
+        "fecha_final": "2022-07-22 12:22:22",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.9178",
+        "estado": "Cerrar",
+        "rentabilidad": -7350.0
+    },
+    {
+        "senal": "Compra",
+        "fecha_inicial": "2022-07-22 09:20:00",
+        "Precio Apertura": "3.9133",
+        "fecha_final": "2022-07-25 09:05:59",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.8984",
+        "estado": "Cerrar",
+        "rentabilidad": -14900.0
+    },
+    {
+        "senal": "Compra",
+        "fecha_inicial": "2022-07-25 09:10:06",
+        "Precio Apertura": "3.9222",
+        "fecha_final": "2022-07-26 09:02:21",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.9117",
+        "estado": "Cerrar",
+        "rentabilidad": -10500.0
+    },
+    {
+        "senal": "Vender",
+        "fecha_inicial": "2022-07-26 10:02:25",
+        "Precio Apertura": "3.9221",
+        "fecha_final": "2022-07-27 12:05:53",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.9198",
+        "estado": "Cerrar",
+        "rentabilidad": -1450.0
+    },
+    {
+        "senal": "Vender",
+        "fecha_inicial": "2022-07-27 09:40:11",
+        "Precio Apertura": "3.9253",
+        "fecha_final": "2022-08-01 09:03:53",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.9208",
+        "estado": "Cerrar",
+        "rentabilidad": 9500.0
+    },
+    {
+        "senal": "Compra",
+        "fecha_inicial": "2022-08-01 09:03:53",
+        "Precio Apertura": "3.9102",
+        "fecha_final": "2022-08-01 11:00:23",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.8825",
+        "estado": "Cerrar",
+        "rentabilidad": -27700.0
+    },
+    {
+        "senal": "Compra",
+        "fecha_inicial": "2022-09-19 09:04:44",
+        "Precio Apertura": "3.8801",
+        "fecha_final": "2022-08-01 11:00:23",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.8825",
+        "estado": "Cerrar",
+        "rentabilidad": 500000
+    },
+    {
+        "senal": "Compra",
+        "fecha_inicial": "2022-09-19 09:04:44",
+        "Precio Apertura": "3.8801",
+        "fecha_final": "2022-08-01 11:00:23",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.8825",
+        "estado": "Cerrar",
+        "rentabilidad": 500000
+    },
+    {
+        "senal": "Compra",
+        "fecha_inicial": "2022-09-20 09:35:17",
+        "Precio Apertura": "3.8733",
+        "fecha_final": "2022-08-01 11:00:23",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.8825",
+        "estado": "Cerrar",
+        "rentabilidad": 9200.0
+    },
+    {
+        "senal": "Compra",
+        "fecha_inicial": "2022-09-20 09:35:17",
+        "Precio Apertura": "3.8733",
+        "fecha_final": "2022-08-01 11:00:23",
+        "tipo_cierre": "Tiempo",
+        "Precio Cierre": "3.8825",
+        "estado": "Cerrar",
+        "rentabilidad": 9200.0
+    }
+]

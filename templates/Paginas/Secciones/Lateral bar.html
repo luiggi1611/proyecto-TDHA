@@ -1,0 +1,59 @@
+ <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
+
+    <div class="main-menu-content">
+
+      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+      {% if current_user.is_authenticated %}
+
+      <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Configuración Usuario</span></a>
+        <ul class="menu-content">
+          
+
+              {% if current_user.role=='admin' %}
+               <li><a class="menu-item" href="{{ url_for('my_account', user_id=current_user['_id']) }}" data-i18n="nav.templates.vert.classic_menu">{{ current_user.username }} </a>
+              </li>
+
+               <li><a class="menu-item" href="{{ url_for('admin_add_user')}}" data-i18n="nav.templates.vert.classic_menu">Crear un usuario</a>
+              </li>
+              <li><a class="menu-item" href="{{ url_for('admin_users')}}" data-i18n="nav.templates.vert.classic_menu">Lista de Usuarios</a>
+              </li>
+
+              <li><a class="menu-item" href="{{ url_for('logout')}}" data-i18n="nav.templates.vert.classic_menu">Salir</a>
+              </li>
+            {% elif current_user.role=='Psicólogo' %}
+               <li><a class="menu-item" href="{{ url_for('admin_add_user')}}" data-i18n="nav.templates.vert.classic_menu">Crear un usuario</a>
+              </li>
+              <li><a class="menu-item" href="{{ url_for('admin_users')}}" data-i18n="nav.templates.vert.classic_menu">Lista de Usuarios</a>
+              </li>
+                  <li><a class="menu-item" href="{{ url_for('reporte')}}" data-i18n="nav.templates.vert.classic_menu">Lista de respuestas</a>
+              </li>
+              <li><a class="menu-item" href="{{ url_for('logout')}}" data-i18n="nav.templates.vert.classic_menu">Salir</a>
+              </li>
+
+              {% else %}
+
+              <li><a class="menu-item" href="{{ url_for('logout')}}"data-i18n="nav.templates.vert.classic_menu">Salir</a>
+              </li>
+              {% endif %}
+
+        </ul>
+      </li>
+      {% else %}
+
+      <li class=" nav-item">
+          </br>
+        <a href="{{ url_for('login')}}" ><i class="la la-thumbs-o-up"></i> <span class="menu-title" data-i18n="nav.support_raise_support.main">Logearse</span></a>
+      </li>
+     
+
+      {% endif %}
+
+
+
+     
+    </ul>
+    </div>
+  </div>
+
+

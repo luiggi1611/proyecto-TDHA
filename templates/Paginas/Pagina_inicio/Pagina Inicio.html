@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
+  <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+  <meta name="author" content="PIXINVENT">
+  <title>APP TDAH</title>
+  <link rel="apple-touch-icon" href="../../../static/app-assets/images/ico/apple-icon-120.png">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
+  rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/vendors.css">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN MODERN CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/app.css">
+  <!-- END MODERN CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/pages/gallery.css">
+  <link rel="stylesheet" type="text/css" href="../../../static/app-assets/css/pages/timeline.css">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS
+  <link rel="stylesheet" type="text/css" href="../../../static/assets/css/style.css">-->
+  <!-- END Custom CSS-->
+</head>
+<body class="vertical-layout vertical-menu-modern 2-columns   menu-expanded fixed-navbar"
+data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+  <!-- fixed-top-->
+  {% include 'Paginas/Secciones/Header.html' %}
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  {% include 'Paginas/Secciones/Lateral bar.html' %}
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
+          <h1 class="content-header-title mb-0 d-inline-block">Bienvenidos </h1>
+          <div class="row breadcrumbs-top d-inline-block">
+            <!--<div class="breadcrumb-wrapper col-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">Gallery</a>
+                </li>
+                <li class="breadcrumb-item active">Gallery Hover Effects
+                </li>
+              </ol>
+            </div>-->
+          </div>
+        </div>
+        <!-- <div class="content-header-right col-md-6 col-12">
+          <div class="dropdown float-md-right">
+            <button class="btn btn-danger dropdown-toggle round btn-glow px-2" id="dropdownBreadcrumbButton"
+            type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownBreadcrumbButton"><a class="dropdown-item" href="#"><i class="la la-calendar-check-o"></i> Calender</a>
+              <a class="dropdown-item" href="#"><i class="la la-cart-plus"></i> Cart</a>
+              <a class="dropdown-item" href="#"><i class="la la-life-ring"></i> Support</a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="la la-cog"></i> Settings</a>
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <div class="content-body">
+        <!-- Description -->
+        <section id="description" class="card">
+          <div class="card-header">
+            <h2 class="card-title"></h2>
+            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+   
+            
+
+
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+
+
+
+             {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show">{{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show">{{error}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %}
+
+                {% if msg %}
+                <div class="alert alert-success alert-dismissible fade show">{{msg}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {% endif %}
+
+                <!-- end flash messages -->
+
+                  <div>
+                    {% block body %}
+                    {% endblock %}
+                  <!-- flash messages -->
+                  </div>
+
+              <div class="card-text">
+                <h3> Este cuestionario tiene como objetivo identificar de manera temprana a las personas que sufren TDAH. Es por ello por lo que es muy importante que sea respondido siempre por los mismos niños o niñas.
+                </h3>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+                {% if current_user.role=='Paciente' %}
+                <div class="card-content">
+                  <div class="card-body">
+
+
+                    <form class="form-horizontal" novalidate method=POST action="{{ url_for('registro_paciente') }}">
+
+
+
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">Seleccione</label>
+                      <select class="form-control"  name="p1">
+                        <option>Seleccione su sexo</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+
+
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">Seleccione</label>
+                      <select class="form-control"  name="p2">
+                        <option>Seleccione su edad</option>
+                        <option>6 años</option>
+                        <option>7 años</option>
+                        <option>8 años</option>
+                        <option>9 años</option>
+                        <option>10 años</option>
+                          <option>11 años</option>
+                      </select>
+                    </fieldset>
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">3.	En qué sector de Lima te encuentras</label>
+                      <select class="form-control"  name="p3">
+                        <option>Lima Sur</option>
+                        <option>Lima Este</option>
+                         <option>Lima Norte</option>
+
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">4.	Indica a qué centro educativo asistes:</label>
+                      <select class="form-control"  name="p4">
+                        <option>Publico</option>
+                        <option>Privado</option>
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">5.	Soy una persona que:</label>
+                      <select class="form-control"  name="p5">
+                        <option>Ha sido diagnosticada con Déficit de Atención</option>
+                        <option>No ha sido diagnosticada con Déficit de Atención, pero creo que puedo presentar algunos síntomas</option>
+                        <option>No ha sido diagnosticada con Déficit de Atención y considero que no presento ningún síntoma.</option>
+
+                      </select>
+                    </fieldset>
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">6.	Indica cómo consideras que es tu relación familiar:</label>
+                      <select class="form-control"  name="p6">
+                        <option>Muy buena</option>
+                        <option>Buena</option>
+                        <option>Ni Buena, ni Mala</option>
+                        <option>Mala</option>
+                        <option>Muy Mala</option>
+                      </select>
+                    </fieldset>
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">7.	Indica si sabes de algún familiar directo que presente déficit de atención:</label>
+                      <select class="form-control"  name="p7">
+                        <option>Sí</option>
+                        <option>No</option>
+                        <option>Tal vez</option>
+
+                      </select>
+                    </fieldset>
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">8.	Indica si eres hija/o único:</label>
+                      <select class="form-control"  name="p8">
+                      <option>Sí</option>
+                        <option>No</option>
+                      </select>
+                    </fieldset>
+
+
+                      Hábitos
+
+                      A continuación se mostrarán una serie de situaciones en las cuales tienes que elegir aquella opción con la que te sientas más identificado/a.
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">9.	Soy una persona que en mi tiempo libre disfruto de series, películas o libros:</label>
+                      <select class="form-control"  name="p9">
+                        <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+
+                      </select>
+                    </fieldset>
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">10.	Soy una persona que disfruta haciendo deporte, me sirve para desconectar y no me supone mucho sacrificio:</label>
+                      <select class="form-control"  name="p10">
+                        <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+                      </select>
+                    </fieldset>
+
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">11.	Me considero una persona activa en mi día a día:</label>
+                      <select class="form-control"  name="p11">
+                        <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">12.	Me considero una persona empática. Me pongo en la piel de los demás para sentir de verdad lo que la otra persona está experimentando, sobre todo, si está pasando un mal momento:</label>
+                      <select class="form-control"  name="p12">
+                        <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">13.	Me considero una persona independiente, no dependo de otros para hacer algo:</label>
+                      <select class="form-control"  name="p13">
+                        <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">14.	Me considero una persona con facilidad para aprender idiomas:</label>
+                      <select class="form-control"  name="p14">
+                       <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+                      </select>
+                    </fieldset>
+
+                                            <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">15.	Me considero una persona constante, soy responsable y me esfuerzo por lograr mis metas:</label>
+                      <select class="form-control"  name="p15">
+                           <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+                      </select>
+                    </fieldset>
+
+                                            <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">16.	Me considero una persona que en el caso de tener alguna duda pregunto a los profesores sin ningún tipo de problema:</label>
+                      <select class="form-control"  name="p16">
+                  <option>Totalmente en desacuerdo</option>
+                        <option>En desacuerdo</option>
+                        <option>Ni de acuerdo ni en desacuerdo</option>
+                        <option>De acuerdo</option>
+                        <option>Totalmente de acuerdo</option>
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">17.	El tipo de asignatura en la que más suelo destacar es:</label>
+                      <select class="form-control"  name="p17">
+                        <option>Matemáticas</option>
+                        <option>Letras</option>
+                       <option>Arte</option>
+                       <option>Historia</option>
+                       <option>Ninguna de las anteriores</option>
+                      </select>
+                    </fieldset>
+
+                      <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">18.	Le dedico diariamente a las tareas escolares:</label>
+                      <select class="form-control"  name="p18">
+                        <option>Menos de 30 minutos</option>
+                        <option>Entre 1 y 2 horas</option>
+                        <option>Entre 2 y 4 horas</option>
+                        <option>Más de 4 horas</option>
+
+                      </select>
+                    </fieldset>
+              Síntomas
+              En las siguientes afirmaciones se propondrán varias situaciones cotidianas donde tienes que elegir cómo de acuerdo está con ellas. La escala es la siguiente:
+                      <ol class="breadcrumb">
+                <li class="breadcrumb-item">1: Totalmente en desacuerdo
+                </li>
+                <li class="breadcrumb-item">2: En desacuerdo
+                </li>
+                <li class="breadcrumb-item ">3: Ni de acuerdo ni en desacuerdo.
+                </li>
+                         <li class="breadcrumb-item ">4: De acuerdo
+                </li>
+                         <li class="breadcrumb-item ">5: Totalmente de acuerdo
+                </li>
+              </ol>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">19.	No presto atención a detalles o cometo errores por descuido:</label>
+                      <select class="form-control"  name="p19">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">20.	No mantengo la atención durante largos períodos de tiempo:</label>
+                      <select class="form-control"  name="p20">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">21.	No escucho cuando me hablan:</label>
+                      <select class="form-control"  name="p21">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">22.	No sigo instrucciones, no finalizo tareas:</label>
+                      <select class="form-control"  name="p22">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">23.	Encuentro dificultades para organizarme:</label>
+                      <select class="form-control"  name="p23">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">24.	Evito tareas de esfuerzo mental:</label>
+                      <select class="form-control"  name="p24">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">25.	Pierdo objetos con mucha facilidad:</label>
+                      <select class="form-control"  name="p25">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">26.	Me distraigo con estímulos externos:</label>
+                      <select class="form-control"  name="p26">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">27.	Soy olvidadizo/a en las actividades diarias:</label>
+                      <select class="form-control"  name="p27">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">28.	Muevo manos y pies en situaciones en las que debería estar tranquilo/a:</label>
+                      <select class="form-control"  name="p28">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">29.	Me levanto constantemente en situaciones en las que debería estar sentado/a:</label>
+                      <select class="form-control"  name="p29">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">30.	Corro y salto en situaciones inadecuadas:</label>
+                      <select class="form-control"  name="p30">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">31.	Tengo dificultad para jugar tranquilamente:</label>
+                      <select class="form-control"  name="p31">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">32.	Tengo la necesidad de estar siempre en movimiento:</label>
+                      <select class="form-control"  name="p32">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">33.	Suelo hablar en exceso:</label>
+                      <select class="form-control"  name="p33">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">34.	Me precipito al responder preguntas:</label>
+                      <select class="form-control"  name="p34">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">35.	Tengo dificultad para respetar los turnos:</label>
+                      <select class="form-control"  name="p35">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">36.	Interrumpo a los demás en sus actividades:</label>
+                      <select class="form-control"  name="p36">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">37.	Tengo dificultades para encontrar soluciones a los problemas de la vida diaria:</label>
+                      <select class="form-control"  name="p37">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">38.	Tengo dificultades para aprender una nueva tarea, como por ejemplo, aprender cómo llegar a un nuevo lugar:</label>
+                      <select class="form-control"  name="p38">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">39.	Tengo dificultades para comenzar y mantener una conversación:</label>
+                      <select class="form-control"  name="p39">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">40.	Tengo dificultades para relacionarme con personas que no conozco:</label>
+                      <select class="form-control"  name="p40">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">41.	Tengo dificultades para mantener una amistad:</label>
+                      <select class="form-control"  name="p41">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">42.	Tengo dificultades para llevarme bien con las personas cercanas a mi:</label>
+                      <select class="form-control"  name="p42">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">43.	Tengo dificultades para hacer nuevos amigos:</label>
+                      <select class="form-control"  name="p43">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">44.	Tengo dificultades para llevar a cabo mis actividades cotidianas o las actividades escolares diarias:</label>
+                      <select class="form-control"  name="p44">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">45.	Tengo facilidad para posponer las tareas diarias:</label>
+                      <select class="form-control"  name="p45">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">46.	Tengo dificultades para participar en actividades en grupo:</label>
+                      <select class="form-control"  name="p46">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+                  <fieldset class="form-group form-group-style">
+                      <label for="selectOpt">47.	Tengo dificultades para participar en actividades individuales:</label>
+                      <select class="form-control"  name="p47">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                      </select>
+                    </fieldset>
+
+
+
+                      <button type="submit" class="btn btn-info active btn-block btn-lg buttonAnimation" data-animation="tada"><i class="ft-unlock"></i> Enviar</button>
+                    </form>
+
+                  </div>
+                </div>
+        {% endif %}
+        <!--/ Description -->
+        <!-- Hover Effects -->
+
+        <!--/ Hover Effects -->
+      </div>
+    </div>
+  </div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  {% include 'Paginas/Secciones/footer.html' %}
+  <!-- BEGIN VENDOR JS-->
+  <script src="../../../static/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
+  <!-- BEGIN PAGE VENDOR JS-->
+  <!-- END PAGE VENDOR JS-->
+  <!-- BEGIN MODERN JS-->
+  <script src="../../../static/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+  <script src="../../../static/app-assets/js/core/app.js" type="text/javascript"></script>
+  <script src="../../../static/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+  <!-- END MODERN JS-->
+  <!-- BEGIN PAGE LEVEL JS-->
+  <!-- END PAGE LEVEL JS-->
+
+
+   <!-- BEGIN VENDOR JS-->
+   <!-- BEGIN PAGE VENDOR JS-->
+   <script src="../../../static/app-assets/vendors/js/charts/echarts/echarts.js" type="text/javascript"></script>
+   <!-- END PAGE VENDOR JS-->
+   <!-- BEGIN PAGE LEVEL JS-->
+   <script src="../../../static/app-assets/js/scripts/charts/echarts/funnel-gauges/right-align-funnel.js"
+   type="text/javascript"></script>
+
+   <script src="../../../static/app-assets/vendors/js/timeline/horizontal-timeline.js" type="text/javascript"></script>
+
+</body>
+</html>
