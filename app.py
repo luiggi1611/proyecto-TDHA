@@ -39,11 +39,9 @@ from requests import HTTPError
 SCOPES = [
         "https://www.googleapis.com/auth/gmail.send"
     ]
-scopes=['profile', 'email'],
-redirect_uri='urn:ietf:wg:oauth:2.0:oob')
 
-flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', scopes=['profile', 'email'],
-    redirect_uri='urn:ietf:wg:oauth:2.0:oob')
+
+flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', scopes=['profile', 'email'], redirect_uri='urn:ietf:wg:oauth:2.0:oob')
 #creds = flow.run_local_server(port=0)
 auth_url, _ = flow.authorization_url(prompt='consent')
 
