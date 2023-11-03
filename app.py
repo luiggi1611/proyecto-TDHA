@@ -42,13 +42,13 @@ SCOPES = [
 
 
 flow = InstalledAppFlow.from_client_secrets_file('client_secret.json',SCOPES)
-creds = flow.run_local_server( host='localhost',
-    port=8080, 
-    authorization_prompt_message='Please visit this URL: {url}', 
-    success_message='The auth flow is complete; you may close this window.',
-    open_browser=True )#open_browser=False,port=80)
+#creds = flow.run_local_server( host='localhost',
+#    port=8080, 
+#    authorization_prompt_message='Please visit this URL: {url}', 
+#    success_message='The auth flow is complete; you may close this window.',
+#    open_browser=True )#open_browser=False,port=80)
 #auth_url, _ = flow.authorization_url(prompt='consent')
-#creds = flow.run_console()
+creds = flow.run_console()
 
 #auth_url, _ = flow.authorization_url(prompt='consent')
 
