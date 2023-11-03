@@ -42,9 +42,9 @@ SCOPES = [
 
 
 flow = InstalledAppFlow.from_client_secrets_file('client_secret.json',SCOPES)
-#creds = flow.run_local_server(open_browser=False)
+creds = flow.run_local_server(open_browser=False,port=0)
 #auth_url, _ = flow.authorization_url(prompt='consent')
-creds = flow.run_console()
+#creds = flow.run_console()
 
 #auth_url, _ = flow.authorization_url(prompt='consent')
 
