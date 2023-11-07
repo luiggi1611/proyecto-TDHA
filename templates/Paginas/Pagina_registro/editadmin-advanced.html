@@ -129,6 +129,11 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                             <th>Fecha Creación</th>
                             <th>Fecha Modificada</th>
                             <th>Fecha Nacimiento</th>
+                          {% if current_user.role=='admin' %}
+                           <th>Eliminar</th>
+                          {% endif %}
+
+                           <th>Editar</th>
                         </tr>
                     </thead>
             
