@@ -39,46 +39,9 @@ from requests import HTTPError
 SCOPES = [
         "https://www.googleapis.com/auth/gmail.send"
     ]
+flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', SCOPES)
+creds = flow.run_local_server(port=0)
 
-
-flow = InstalledAppFlow.from_client_secrets_file('client_secret.json',SCOPES)
-#creds = flow.run_local_server( host='localhost',
-#    port=8080, 
-#    authorization_prompt_message='Please visit this URL: {url}', 
-#    success_message='The auth flow is complete; you may close this window.',
-#    open_browser=True )#open_browser=False,port=80)
-#auth_url, _ = flow.authorization_url(prompt='consent')
-from urllib.parse import parse_qs, urlparse
-from google_auth_oauthlib.flow import InstalledAppFlow
-
-def run_console_hack(flow):
-    flow.redirect_uri = 'http://localhost:1'
-    auth_url, _ = flow.authorization_url()
-    print(
-        "Visit the following URL:",
-        auth_url,
-        "After granting permissions, you will be redirected to an error page",
-        "Copy the URL of that error page (http://localhost:1/?state=...)",
-        sep="\n"
-    )
-    redir_url = input("URL: ")
-    code = parse_qs(urlparse(redir_url).query)['code'][0]
-    flow.fetch_token(code=code)
-    return flow.credentials
-#creds = flow.run_console()
-creds = run_console_hack(flow)
-#auth_url, _ = flow.authorization_url(prompt='consent')
-
-#print('Please go to this URL: {}'.format(auth_url))
-
-# The user will get an authorization code. This code is used to get the
-# access token.
-#code = input('Enter the authorization code: ')
-#flow.fetch_token(code=code)
-
-# You can use flow.credentials, or you can just get a requests session
-# using flow.authorized_session.
-#session = flow.authorized_session()
 
 def send_email(subject, body, recipients, attachments=None):
     """
@@ -348,7 +311,7 @@ def login():
         user = curs.fetchone()
         conn.close()
         if user == None:
-            flash("Ingrese correctamente su  usuario o contraseña!", category='error')
+            flash("Ingrese correctamente su  usuario o contraseña!", category='danger')
             return render_template('Paginas/Pagina_registro/login-advanced.html')
         print(user[4])
         if user and user[5] == request.form['password']:
@@ -362,7 +325,7 @@ def login():
             flash("Ingreso Exitosamente!", category='success')
             return redirect(request.args.get("next") or url_for("home"))
 
-        flash("Ingrese correctamente su  usuario o contraseña!", category='error')
+        flash("Ingrese correctamente su  usuario o contraseña!", category='danger')
     return render_template('Paginas/Pagina_registro/login-advanced.html')
 
 
@@ -1189,7 +1152,6 @@ def admin_update_user(user_id):
     users  = cur.fetchall()
     conn.close()
     return render_template('Paginas/Pagina_registro/register-advanced-admi.html', all_roles=roles, all_users=users)
-
 
 
 if __name__ == "__main__":
