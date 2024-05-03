@@ -39,8 +39,37 @@ from requests import HTTPError
 SCOPES = [
         "https://www.googleapis.com/auth/gmail.send"
     ]
-flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', SCOPES)
-creds = flow.run_local_server(port=0)
+
+
+flow = InstalledAppFlow.from_client_secrets_file('client_secret.json',SCOPES)
+#creds = flow.run_local_server( host='localhost',
+#    port=8080, 
+#    authorization_prompt_message='Please visit this URL: {url}', 
+#    success_message='The auth flow is complete; you may close this window.',
+#    open_browser=True )#open_browser=False,port=80)
+#auth_url, _ = flow.authorization_url(prompt='consent')
+from urllib.parse import parse_qs, urlparse
+from google_auth_oauthlib.flow import InstalledAppFlow
+
+def run_console_hack(flow):
+    flow.redirect_uri = 'http://localhost:1'
+    auth_url, _ = flow.authorization_url()
+    print(
+        "Visit the following URL:",
+        auth_url,
+        "After granting permissions, you will be redirected to an error page",
+        "Copy the URL of that error page (http://localhost:1/?state=...)",
+        sep="\n"
+    )
+    redir_url = input("URL: ")
+    code = parse_qs(urlparse(redir_url).query)['code'][0]
+    flow.fetch_token(code=code)
+    return flow.credentials
+#creds = flow.run_console()
+creds = run_console_hack(flow)
+#auth_url, _ = flow.authorization_url(prompt='consent')
+
+#print('Please go to this URL: {}'.format(auth_url))
 
 
 def send_email(subject, body, recipients, attachments=None):
