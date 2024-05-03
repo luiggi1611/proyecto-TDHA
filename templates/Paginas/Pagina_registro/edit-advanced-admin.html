@@ -151,12 +151,12 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                   <div class="card-body">
                    
                     
-                    <form class="form-horizontal" novalidate method="POST"  action="{{ url_for('admin_update_user', user_id=user[0]) }}">
+                    <form class="form-horizontal" novalidate method="POST"  action="{{ url_for('admin_update_user', user_id=user[0]) }}"  id="myforms">
                       <div class="row">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="first_name" id="first_name" class="form-control input-lg"
-                            placeholder="Nombre" tabindex="1"  required autofocus value="{{ user[1] }}">
+                            placeholder="Nombre" tabindex="1"  required data-validation-required-message="Ingrese un nombre" autofocus value="{{ user[1] }}">
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -165,7 +165,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="last_name" id="last_name" class="form-control input-lg"
-                            placeholder="Apellido" tabindex="2" required value="{{ user[2] }}" >
+                            placeholder="Apellido" tabindex="2" required data-validation-required-message="Ingrese un apellido" value="{{ user[2] }}" >
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -176,7 +176,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 
                       <fieldset class="form-group position-relative has-icon-left">
                         <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Correo institucional"
-                        tabindex="4" required data-validation-required-message="Please enter email address." required value="{{ user[4] }}">
+                        tabindex="4" required data-validation-required-message="Please enter email address." required  data-validation-required-message="Ingrese un correo" value="{{ user[4] }}">
                         <div class="form-control-position">
                           <i class="ft-mail"></i>
                         </div>
@@ -197,7 +197,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="password" name="password" id="password" class="form-control input-lg"
-                            placeholder="Password" tabindex="5" required required value="{{ user[5] }}">
+                            placeholder="Password" tabindex="5" required data-validation-required-message="Contraseña" value="{{ user[5] }}">
                             <div class="form-control-position">
                               <i class="la la-key"></i>
                             </div>
@@ -208,7 +208,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="password" name="confirm_password" id="password_confirmation" class="form-control input-lg"
                             placeholder="Confirmar Password" tabindex="6" data-validation-matches-match="password"
-                            data-validation-matches-message="Password & Confirm Password must be the same." required value="{{ user[5] }}">
+                            data-validation-matches-message="Password & Confirm Password must be the same." required data-validation-required-message="Contraseña" value="{{ user[5] }}">
                             <div class="form-control-position">
                               <i class="la la-key"></i>
                             </div>
@@ -223,7 +223,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="date_added" id="first_name" class="form-control input-lg"
-                            placeholder="Nombre" tabindex="1" required value="{{ user[8] }}" readonly>
+                            placeholder="Nombre" tabindex="1" required value="{{ user[8] }}" readonly inputmode="text" data-validation-required-message="Por favor ingrese el nombre del paciente">
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -232,7 +232,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="date_modified" id="last_name" class="form-control input-lg"
-                            placeholder="Apellido" tabindex="2" required value="{{ user[7] }}" readonly >
+                            placeholder="Apellido" tabindex="2" required value="{{ user[7] }}" readonly  required data-validation-required-message="Por favor ingrese el apellido del paciente">
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -266,6 +266,14 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 
   {% include 'Paginas/Secciones/footer.html' %}
 
+    <script>
+document.getElementById('myforms').addEventListener('submit', function(event) {
+    if (!this.checkValidity()) {
+        event.preventDefault(); // Detiene el envío del formulario
+        alert('Por favor completa todos los campos requeridos.');
+    }
+});
+</script>
   <!-- BEGIN VENDOR JS-->
   <script src="../../../static/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->

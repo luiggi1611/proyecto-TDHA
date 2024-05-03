@@ -60,7 +60,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 
       
 
-              <h3 class="brand-text">Registro Medico</h3>
+              <h3 class="brand-text">Registro Médico</h3>
             </a>
           </li>
           <li class="nav-item d-md-none">
@@ -155,12 +155,12 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                   <div class="card-body">
                    
                     
-                    <form class="form-horizontal" novalidate method="POST"  action="/admin/add-user">
+                    <form class="form-horizontal" novalidate method="POST"  action="/admin/add-user" id="myforms">
                       <div class="row">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="first_name" id="first_name" class="form-control input-lg"
-                            placeholder="Nombre" tabindex="1" required>
+                            placeholder="Por favor ingrese su Nombre" tabindex="1" required inputmode="text" data-validation-required-message="Por favor ingrese el nombre del paciente" >
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -169,7 +169,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="last_name" id="last_name" class="form-control input-lg"
-                            placeholder="Apellido" tabindex="2" required>
+                            placeholder="Por favor ingrese su Apellido" tabindex="2" required inputmode="text" required data-validation-required-message="Por favor ingrese el apellido del paciente">
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -186,8 +186,9 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="help-block font-small-3"></div>
                       </fieldset>-->
                       <fieldset class="form-group position-relative has-icon-left">
-                        <input type="text" name="dni" id="dni" class="form-control input-lg" placeholder="ingresar DNI "
-                        tabindex="3" minlength="8" maxlength="8" inputmode="numeric" required data-validation-required-message="Por favor ingrese un DNI correcto de 8 digitos">
+                        <input type="text" name="dni" id="dni" class="form-control input-lg" placeholder="Ingresar DNI "
+                        tabindex="3" minlength="1" maxlength="8" inputmode="numeric" required data-validation-required-message="Por favor ingrese un DNI correcto de 8 digitos"
+                        >
                         <div class="form-control-position">
                           <i class="ft-user"></i>
                         </div>
@@ -196,7 +197,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 
                          <fieldset class="form-group position-relative has-icon-left">
                         <input type="date" name="fecha_nacimiento" id="fecha_nacimiento"  class="form-control input-lg input-with-post-icon datepicker"
-                        tabindex="7" required>
+                        tabindex="7" required data-validation-required-message="Por favor ingrese una fecha de cumpleaños correcta">
                         <div class="form-control-position">
                            <i class="fas fa-calendar input-prefix"></i>
                         </div>
@@ -204,7 +205,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                       </fieldset>
 
                       <fieldset class="form-group position-relative has-icon-left">
-                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Correo institucional"
+                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Por favor ingrese su Correo"
                         tabindex="4" required data-validation-required-message="Por favor ingrese un correo correcto">
                         <div class="form-control-position">
                           <i class="ft-mail"></i>
@@ -215,7 +216,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="password" name="password" id="password" class="form-control input-lg"
-                            placeholder="Password" tabindex="5" required>
+                            placeholder="Por favor ingrese su Password" tabindex="5" required  data-validation-required-message="Por favor ingrese una contraseña">
                             <div class="form-control-position">
                               <i class="la la-key"></i>
                             </div>
@@ -225,8 +226,8 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="password" name="confirm_password" id="password_confirmation" class="form-control input-lg"
-                            placeholder="Confirmar Password" tabindex="6" data-validation-matches-match="password"
-                            data-validation-matches-message="Password & Confirmacion de Password deben ser iguales">
+                            placeholder="Por favor confirmar Password" tabindex="6" data-validation-matches-match="password"
+                            data-validation-matches-message="Password & Confirmacion de Password deben ser iguales" required  data-validation-required-message="Por favor vuelva ingresar la contraseña">
                             <div class="form-control-position">
                               <i class="la la-key"></i>
                             </div>
@@ -242,13 +243,13 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                       
                       {% if current_user.role=='admin' %}
                         <select name="role" class="form-control"  required>
-                          <option value="" selected disabled hidden> -- Escoge el rol -- </option>
+                          <option value="" selected disabled hidden> - -Por favor seleccionar un Rol -- </option>
 
                          <option value="{{ 'Psicólogo' }}">{{  'Psicólogo' }}</option>
                       </select>
                         {% else %}
                        <select name="role" class="form-control"  required>
-                          <option value="" selected disabled hidden> -- Choose role -- </option>
+                          <option value="" selected disabled hidden> -- Por favor seleccionar un Rol -- </option>
 
                          <option value="{{ 'Paciente'  }}">{{  'Paciente' }}</option>
                       </select>
@@ -262,7 +263,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 
                       <div class="row">
                         <div class="col-12 col-sm-6 col-md-6">
-                          <button type="submit" class="btn btn-info btn-lg btn-glow active btn-block  buttonAnimation" data-animation="tada"><i class="ft-user"></i> Registrarse</button>
+                          <button type="submit" class="btn btn-info btn-lg btn-glow active btn-block  buttonAnimation" data-animation="tada"><i class="ft-user"></i> Registrarr</button>
                         </div>
 
                       </div>
@@ -285,6 +286,15 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
   <script src="../../../static/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
+  <script>
+document.getElementById('myforms').addEventListener('submit', function(event) {
+    if (!this.checkValidity()) {
+        event.preventDefault(); // Detiene el envío del formulario
+        alert('Por favor completa todos los campos requeridos.');
+    }
+});
+</script>
+
   <script src="../../../static/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"
   type="text/javascript"></script>
   <script src="../../../static/app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
