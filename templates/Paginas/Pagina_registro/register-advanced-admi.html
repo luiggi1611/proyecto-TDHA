@@ -160,7 +160,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="first_name" id="first_name" class="form-control input-lg"
-                            placeholder="Por favor ingrese su Nombre" tabindex="1" required inputmode="text" data-validation-required-message="Por favor ingrese el nombre del paciente" >
+                            placeholder="Por favor ingrese su Nombre" tabindex="1" required inputmode="text"   pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" title="Por favor ingrese solo letras" data-validation-required-message="Por favor ingrese el nombre del paciente" >
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -169,7 +169,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                         <div class="col-12 col-sm-6 col-md-6">
                           <fieldset class="form-group position-relative has-icon-left">
                             <input type="text" name="last_name" id="last_name" class="form-control input-lg"
-                            placeholder="Por favor ingrese su Apellido" tabindex="2" required inputmode="text" required data-validation-required-message="Por favor ingrese el apellido del paciente">
+                            placeholder="Por favor ingrese su Apellido" tabindex="2" required inputmode="text"  pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" title="Por favor ingrese solo letras" required data-validation-required-message="Por favor ingrese el apellido del paciente">
                             <div class="form-control-position">
                               <i class="ft-user"></i>
                             </div>
@@ -263,7 +263,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 
                       <div class="row">
                         <div class="col-12 col-sm-6 col-md-6">
-                          <button type="submit" class="btn btn-info btn-lg btn-glow active btn-block  buttonAnimation" data-animation="tada"><i class="ft-user"></i> Registrarr</button>
+                          <button type="submit" class="btn btn-info btn-lg btn-glow active btn-block  buttonAnimation" data-animation="tada"><i class="ft-user"></i> Registrar</button>
                         </div>
 
                       </div>
@@ -290,7 +290,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 document.getElementById('myforms').addEventListener('submit', function(event) {
     if (!this.checkValidity()) {
         event.preventDefault(); // Detiene el envío del formulario
-        alert('Por favor completa todos los campos requeridos.');
+        alert('Por favor completa todos los campos requeridos correctamente, Use solo texto en el nombre y apellidos..');
     }
 });
 </script>
