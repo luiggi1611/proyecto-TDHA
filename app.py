@@ -145,6 +145,26 @@ def send_email(subject, body, recipients, attachments=None):
 #app.logger.addHandler(handler)
 
 
+
+# Read attachment
+
+# with open(r"D:\ENVIOS_INFORMACION\CALL_AGENCIAS\Datos_usuarios"+str(date.today()).replace('-','_')+".xlsx", 'rb') as f:
+#   content = f.read()
+# attachments.append(('Datos_usuarios.xlsx', content))
+
+
+########################################################################################################################
+#                                                      MANEJO DE LOGS
+#
+########################################################################################################################
+#handler = RotatingFileHandler(os.path.join(app.root_path, 'logs', 'oboeqa_web.log'), maxBytes=102400, backupCount=10)
+#logging_format = logging.Formatter(
+#    '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+
+#handler.setFormatter(logging_format)
+#app.logger.addHandler(handler)
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     app.logger.error(error)
